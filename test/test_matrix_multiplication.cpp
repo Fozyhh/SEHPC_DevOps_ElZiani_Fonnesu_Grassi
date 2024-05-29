@@ -28,6 +28,49 @@ TEST(MatrixMultiplicationTest, TestMultiplyMatrices) {
     ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
 
+TEST(MatrixMultiplicationTest1, TestMultiplyMatrices) {
+    std::vector<std::vector<int>> A = {
+        {1, -2, 1}
+    };
+    std::vector<std::vector<int>> B = {
+        {1},
+        {1},
+        {1}
+    };
+    std::vector<std::vector<int>> C(1, std::vector<int>(1, 0));
+
+    multiplyMatrices(A, B, C, 1, 3, 1);
+
+    std::vector<std::vector<int>> expected = {
+        {0}
+    };
+
+    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
+}
+
+TEST(MatrixMultiplicationTest2, TestMultiplyMatrices) { //NOME UNICO 
+    std::vector<std::vector<int>> A = {
+        {1, -2, 1},
+        {},
+        {}
+
+    };
+    std::vector<std::vector<int>> B = {
+        {1},
+        {1},
+        {1}
+    };
+    std::vector<std::vector<int>> C(1, std::vector<int>(1, 0));
+
+    multiplyMatrices(A, B, C, 1, 3, 1); //MAT1(a*b), MAT2(b*c), RESULTING MATRIX(a*c), a,b,c
+
+    std::vector<std::vector<int>> expected = {
+        {0}
+    };
+
+    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
+}
+
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

@@ -107,6 +107,51 @@ TEST(MatrixMultiplicationTest2, TestMultiplyMatrices) {
     ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
 
+//error: 2, 4, 6, 12, 13, 14, 16
+// 
+/**
+ * @brief 
+ * @note 
+ * 
+ * @bug error 2: 
+ * @bug error 4: 
+ * @bug error 6: 
+ * @bug error 12: 
+ * @bug error 12: 
+ * @bug error 13: 
+ * @bug error 14: 
+ * @bug error 16:  
+ */
+TEST(MatrixMultiplicationTest10, TestMultiplyMatrices) { //NOME UNICO 
+    size_t rowsA = 20;
+    size_t colsA = 25;
+    size_t colsB = rowsA;
+    size_t rowsB = 20;
+
+    std::vector<std::vector<int>> A(rowsA, std::vector<int>(colsA, 0));
+    for(size_t i = 0; i < rowsA; ++i) {
+        for(size_t j = 0; j < colsA; ++j){
+            A[i][j] = (i * 10) +j;
+        }
+    }
+    std::vector<std::vector<int>> B(rowsB, std::vector<int>(colsB, 0));
+    for(size_t i = 0; i < rowsB; ++i) {
+        for(size_t j = 0; j < colsB; ++j){
+            B[i][j] = (i * 10) +j;
+        }
+    }
+    std::vector<std::vector<int>> C(rowsA, std::vector<int>(colsB, 0));
+
+    multiplyMatrices(A, B, C, rowsA, colsB, rowsA); //MAT1(a*b), MAT2(b*c), RESULTING MATRIX(a*c), a,b,c
+
+    std::vector<std::vector<int>> expected(rowsA, std::vector<int>(colsB, 0));
+    for(size_t i = 0; i < rowsB; ++i) {
+        expected[i][i] = i+1;
+    }
+
+    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
+}
+
 //error: 4, 8, 9, 11, 12, 14, 16, 17, 18 
 // This test aims to observe how the program behaves with two big matrix, one which is the identity and one with all the possible numbers 
 // from 1 to 100 in the diagonal.
@@ -240,6 +285,136 @@ TEST(MatrixMultiplicationTest6, TestMultiplyMatrices) { //NOME UNICO
     std::vector<std::vector<int>> expected(rowsA, std::vector<int>(colsB, 0));
     for(int i = 0; i < rowsA; ++i) {
         expected[i][i] = i;
+    }
+
+    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
+}
+
+//error: 1, 4, 8, 11, 12, 14, 16, 18
+// 
+// 
+/**
+ * @brief 
+ * @note 
+ * 
+ * @bug error 1:
+ * @bug error 4:
+ * @bug error 8:
+ * @bug error 11:
+ * @bug error 12:
+ * @bug error 14:
+ * @bug error 16:
+ * @bug error 18:
+ */
+TEST(MatrixMultiplicationTest7, TestMultiplyMatrices) { //NOME UNICO 
+    size_t rowsA = 10;
+    size_t colsA = 10;
+    size_t colsB = rowsA;
+    size_t rowsB = 10;
+
+    std::vector<std::vector<int>> A(rowsA, std::vector<int>(colsA, 0));
+    for(size_t i = 0; i < rowsA; ++i) {
+        A[i][i] = 1;
+        
+    }
+    std::vector<std::vector<int>> B(rowsB, std::vector<int>(colsB, 0));
+    for(int i = 0; i < rowsB; ++i) {
+        for (size_t j = 0; j < colsB; j++){
+            B[i][j] = j;
+        }
+    }
+    std::vector<std::vector<int>> C(rowsA, std::vector<int>(colsB, 0));
+
+    multiplyMatrices(A, B, C, rowsA, colsB, rowsA); //MAT1(a*b), MAT2(b*c), RESULTING MATRIX(a*c), a,b,c
+
+    std::vector<std::vector<int>> expected(rowsA, std::vector<int>(colsB, 0));
+    for(int i = 0; i < rowsA; ++i) {
+        expected[i][i] = i;
+    }
+
+    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
+}
+
+//error: 2, 6, 8, 10, 12, 14, 15, 18
+// 
+/**
+ * @brief 
+ * @note we expect the resulting matrix to be equal to C
+ * 
+ * @bug error 2:
+ * @bug error 6:
+ * @bug error 8:
+ * @bug error 10:
+ * @bug error 12:
+ * @bug error 14:
+ * @bug error 15:
+ * @bug error 18:
+ */
+TEST(MatrixMultiplicationTest8, TestMultiplyMatrices) { //NOME UNICO 
+    size_t rowsA = 10;
+    size_t colsA = 10;
+    size_t colsB = rowsA;
+    size_t rowsB = 10;
+
+    std::vector<std::vector<int>> A(rowsA, std::vector<int>(colsA, 0));
+    for(size_t i = 0; i < rowsA; ++i) {
+        A[i][i] = 1; 
+        
+    }
+    std::vector<std::vector<int>> B(rowsB, std::vector<int>(colsB, 2));
+    for(int i = 0; i < rowsB; ++i) {
+        for (size_t j = 0; j < colsB; j++){
+            A[i][j] = i;
+        }
+    }
+    std::vector<std::vector<int>> C(rowsA, std::vector<int>(colsB, 0));
+
+    multiplyMatrices(A, B, C, rowsA, colsB, rowsA); //MAT1(a*b), MAT2(b*c), RESULTING MATRIX(a*c), a,b,c
+
+    std::vector<std::vector<int>> expected(rowsA, std::vector<int>(colsB, 0));
+    for(int i = 0; i < rowsA; ++i) {
+        expected[i][i] = i;
+    }
+
+    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
+}
+
+//error: 1, 2, 8, 11, 12, 13, 14, 18
+// 
+/**
+ * @brief 
+ * @note 
+ * 
+ * @bug error 1: 
+ * @bug error 2: 
+ * @bug error 8: 
+ * @bug error 11: 
+ * @bug error 12: 
+ * @bug error 13: 
+ * @bug error 14: 
+ * @bug error 18:  
+ */
+TEST(MatrixMultiplicationTest9, TestMultiplyMatrices) { //NOME UNICO 
+    size_t rowsA = 10;
+    size_t colsA = 10;
+    size_t colsB = rowsA;
+    size_t rowsB = 10;
+
+    std::vector<std::vector<int>> A(rowsA, std::vector<int>(colsA, 0));
+    for(size_t i = 0; i < rowsA; ++i) {
+        A[i][i] = i+1;
+    }
+    std::vector<std::vector<int>> B(rowsB, std::vector<int>(colsB, 0));
+    for(size_t i = 0; i < rowsB; ++i) {
+        B[i][i] = 1;
+    }
+    std::vector<std::vector<int>> C(rowsA, std::vector<int>(colsB, 0));
+
+    multiplyMatrices(A, B, C, rowsA, colsB, rowsA); //MAT1(a*b), MAT2(b*c), RESULTING MATRIX(a*c), a,b,c
+
+    std::vector<std::vector<int>> expected(rowsA, std::vector<int>(colsB, 0));
+    for(size_t i = 0; i < rowsB; ++i) {
+        expected[i][i] = i+1;
     }
 
     ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";

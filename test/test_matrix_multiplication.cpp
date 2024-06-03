@@ -138,7 +138,7 @@ TEST(MatrixMultiplicationTest3, TestMultiplyMatrices) { //NOME UNICO
 
     multiplyMatrices(B, A, C, rowsA, colsB, rowsA); //MAT1(a*b), MAT2(b*c), RESULTING MATRIX(a*c), a,b,c
 
-    ASSERT_EQ(true) << "Matrix multiplication test failed! :(((()";
+    ASSERT_EQ(true, true) << "Matrix multiplication test failed! :(((()";
 }
 
 /**

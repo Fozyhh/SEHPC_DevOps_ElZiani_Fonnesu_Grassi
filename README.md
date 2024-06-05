@@ -40,7 +40,7 @@ or alternatively:
 ```
 ./build.sh
 ```
-Finally, in the build directory
+Finally, in the build directory:
 ```
 ./test_multiplication
 ```
@@ -108,6 +108,6 @@ TEST(MatrixMultiplicationTest, TestMultiplyMatrices) {
 |Error #20| Number of columns in matrix A is odd! | <p align="center">🟢</p> |
 
 ## Credits
-- Nizare Elziani
-- Lorenzo Fonnesu
-- Andrea Grassi
+- Nizare El Ziani - 10728568
+- Lorenzo Fonnesu - 10740840
+- Andrea Grassi - 10741092

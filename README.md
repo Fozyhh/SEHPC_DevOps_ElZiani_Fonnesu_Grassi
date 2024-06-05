@@ -40,6 +40,10 @@ or alternatively:
 ```
 ./build.sh
 ```
+Finally, in the build directory
+```
+./test_multiplication
+```
 
 ### Test example
 

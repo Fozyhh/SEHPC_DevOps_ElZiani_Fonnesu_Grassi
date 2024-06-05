@@ -28,6 +28,19 @@ The repository is divided in the following directories:
 
 ## How to run tests
 
+To run the tests, do the following instruction:
+
+```
+mkdir -p build && cd build
+cmake ..
+cmake --build
+```
+or alternatively:
+
+```
+./build.sh
+```
+
 ### Test example
 
 Here’s an example test case included in test_matrix_multiplication.cpp:

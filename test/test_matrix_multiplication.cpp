@@ -109,14 +109,10 @@ TEST(MatrixMultiplicationTest2, TestMultiplyMatrices) {
  * @brief This test does the multiplication between two rectangular matrices with various numbers
  * @note The matrix resultant is a rectangular matrix
  * 
- * @bug error 2: Matrix A contains a number bigger than 100!
- * @bug error 4: Matrix B contains the number 3!
+ * @bug error 3: Matrix A contains a negative number!
+ * @bug error 5: Matrix B contains a negative number!
  * @bug error 6: Result matrix contains a number bigger than 100!
- * @bug error 12: The number of rows in A is equal to the number of columns in B!
- * @bug error 13: The first element of matrix A is equal to the first element of matrix B!
- * @bug error 14: The number matrix C has an even number of rows! 
- * @bug error 16: Matrix B contains the number 6!
- * @bug error 20: Number of columns in matrix A is odd!
+ * @bug error 10: A row in Matrix A contains more than one '1'!
  */
 TEST(MatrixMultiplicationTest3, TestMultiplyMatrices) { //NOME UNICO 
     size_t rowsA = 3;
